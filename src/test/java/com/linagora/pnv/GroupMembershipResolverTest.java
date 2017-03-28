@@ -77,9 +77,32 @@ public abstract class GroupMembershipResolverTest {
     /*
     TODO show removeMembership works
      */
+    @Test
+    public void removeMembershipShouldRemoveAMembership() throws Exception {
+    	// Given
+    	String group = "group";
+    	String user = "user";
+    	//When
+    	groupMembershipResolver.addMembership(group, user);
+    	groupMembershipResolver.removeMembership(group, user);
+    	boolean actual = groupMembershipResolver.isMember(user, group);
+    	// Then
+    	assertThat(actual).isFalse();
+    }
 
     /*
     TODO show removeMembership don't fail when membership do not exist
      */
-
+    @Test
+    public void removeMembershipShouldNotFailWhenMembershipNotExist() throws Exception {
+    	// Given
+    	String userRemoved = null;
+    	// When
+    	groupMembershipResolver.removeMembership("group", userRemoved);
+    	boolean actual = groupMembershipResolver.isMember(userRemoved, "group");
+    	// Then
+    	assertThat(actual).isFalse();
+    }
+    
+    
 }
