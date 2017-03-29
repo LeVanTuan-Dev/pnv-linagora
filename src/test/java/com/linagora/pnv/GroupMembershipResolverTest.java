@@ -66,7 +66,7 @@ public abstract class GroupMembershipResolverTest {
     @Test
     public void addMembershipShouldAddAMembershipWithANullUser() throws Exception {
         //Given
-        String userAdded = null;
+        String userAdded = "";
         //When
         groupMembershipResolver.addMembership("group", userAdded);
         boolean actual = groupMembershipResolver.isMember(userAdded, "group");
@@ -83,7 +83,6 @@ public abstract class GroupMembershipResolverTest {
     	String group = "group";
     	String user = "user";
     	//When
-    	groupMembershipResolver.addMembership(group, user);
     	groupMembershipResolver.removeMembership(group, user);
     	boolean actual = groupMembershipResolver.isMember(user, group);
     	// Then
@@ -103,6 +102,4 @@ public abstract class GroupMembershipResolverTest {
     	// Then
     	assertThat(actual).isFalse();
     }
-    
-    
 }

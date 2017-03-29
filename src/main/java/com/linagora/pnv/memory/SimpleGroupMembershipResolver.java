@@ -22,12 +22,9 @@ package com.linagora.pnv.memory;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.linagora.pnv.GroupMembershipResolver;
-
-
 /**
  * In memory {@link GroupMembershipResolver} implementation. There is no
  * persistence. You will get only what you add.
@@ -84,5 +81,4 @@ public class SimpleGroupMembershipResolver implements GroupMembershipResolver {
     public boolean isMember(String user, String group) {
         return memberships.contains(new Membership(user, group));
     }
-
 }
