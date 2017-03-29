@@ -33,6 +33,6 @@ public class JPAGroupMembershipResolver implements GroupMembershipResolver {
 
 	@Override
 	public boolean isMember(String user, String group) {
-		return this.entityManager.find(JPAMembership.class, new JPAMembershipId(group, user)) != null;
+		return entityManager.find(JPAMembership.class, new JPAMembershipId(group, user)) != null;
 	}
 }

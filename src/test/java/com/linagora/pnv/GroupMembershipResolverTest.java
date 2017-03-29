@@ -66,7 +66,7 @@ public abstract class GroupMembershipResolverTest {
     @Test
     public void addMembershipShouldAddAMembershipWithANullUser() throws Exception {
         //Given
-        String userAdded = "";
+        String userAdded = null;
         //When
         groupMembershipResolver.addMembership("group", userAdded);
         boolean actual = groupMembershipResolver.isMember(userAdded, "group");
