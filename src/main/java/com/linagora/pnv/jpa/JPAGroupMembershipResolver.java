@@ -5,10 +5,6 @@ import javax.persistence.EntityManagerFactory;
 
 import com.linagora.pnv.GroupMembershipResolver;
 
-/*
-TODO fill the gaps
- */
-
 public class JPAGroupMembershipResolver implements GroupMembershipResolver {
 
 	private final EntityManager entityManager;
@@ -28,7 +24,7 @@ public class JPAGroupMembershipResolver implements GroupMembershipResolver {
 	public void removeMembership(String group, String user) {
 		this.entityManager.getTransaction().begin();
 		this.entityManager.remove(new JPAMembership(group, user));
-		this.entityManager.getTransaction().commit();
+		this.entityManager.getTransaction().commit();   
 	}
 
 	@Override

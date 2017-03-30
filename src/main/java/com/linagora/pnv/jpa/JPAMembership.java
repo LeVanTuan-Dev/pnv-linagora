@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 import com.google.common.base.Objects;
+import com.google.common.base.Preconditions;
 
 
 /*
@@ -35,7 +36,9 @@ public class JPAMembership implements Serializable {
         this.userName = sanitizeUserName(userName);
     }
     
-    public static String sanitizeUserName(String userName) {
+    public static String sanitizeUserName(String userName){
+    	Preconditions.checkArgument(!Objects.equal(userName, NULL_VALUE), NULL_VALUE + " can not be used as a username");
+    	
     	return Optional.ofNullable(userName)
         		.orElse(NULL_VALUE);
     }

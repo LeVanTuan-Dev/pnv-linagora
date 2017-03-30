@@ -10,7 +10,7 @@ public class JPAMembershipId implements Serializable {
 	private String groupName;
 	private String userName;
 	
-	public JPAMembershipId(String groupName, String userName) {
+	public JPAMembershipId(String groupName, String userName){
 		super();
 		this.groupName = groupName;
 		this.userName =JPAMembership.sanitizeUserName(userName);
