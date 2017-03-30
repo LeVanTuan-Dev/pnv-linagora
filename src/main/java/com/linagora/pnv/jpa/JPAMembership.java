@@ -11,10 +11,6 @@ import javax.persistence.Table;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 
-
-/*
- TODO implement Persistance logic
- */
 @Entity(name ="Membership")
 @Table(name ="Membership")
 @IdClass(JPAMembershipId.class)
@@ -43,13 +39,10 @@ public class JPAMembership implements Serializable {
         		.orElse(NULL_VALUE);
     }
     
-    public JPAMembership() {
+    public JPAMembership() {  
     	
     }
-    
-    /*
-    TODO implements equals and hashcode
-     */
+
 	@Override
 	public boolean equals(Object object) {
 		if(object instanceof JPAMembership){
